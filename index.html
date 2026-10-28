@@ -229,6 +229,84 @@
       animation: pourStream 1.6s ease-in-out infinite;
     }
 
+    /* Small Humans & Robotics Industrial Floor Animations */
+    @keyframes workerWalkCycle {
+      0% { transform: translateX(0px); }
+      46% { transform: translateX(180px); }
+      48% { transform: translateX(180px) scaleX(-1); }
+      96% { transform: translateX(0px) scaleX(-1); }
+      100% { transform: translateX(0px) scaleX(1); }
+    }
+    .anim-worker-walk {
+      animation: workerWalkCycle 18s ease-in-out infinite;
+    }
+
+    @keyframes techProbeMotion {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-12deg); }
+      45% { transform: rotate(6deg); }
+      70% { transform: rotate(-5deg); }
+    }
+    .anim-tech-arm {
+      transform-origin: 154px 274px;
+      animation: techProbeMotion 2.4s ease-in-out infinite;
+    }
+
+    @keyframes riggerGestureMotion {
+      0%, 100% { transform: rotate(0deg); }
+      30% { transform: rotate(-30deg); }
+      60% { transform: rotate(5deg); }
+    }
+    .anim-rigger-arm {
+      transform-origin: 524px 282px;
+      animation: riggerGestureMotion 2.0s ease-in-out infinite;
+    }
+
+    @keyframes amrCartDrive {
+      0% { transform: translateX(0px); }
+      46% { transform: translateX(420px); }
+      48% { transform: translateX(420px) scaleX(-1); }
+      96% { transform: translateX(0px) scaleX(-1); }
+      100% { transform: translateX(0px) scaleX(1); }
+    }
+    .anim-amr-cart {
+      animation: amrCartDrive 20s linear infinite;
+    }
+
+    @keyframes cobotSweepCycle {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(24deg); }
+      100% { transform: rotate(0deg); }
+    }
+    .anim-cobot-joint {
+      transform-origin: 730px 230px;
+      animation: cobotSweepCycle 3.4s ease-in-out infinite;
+    }
+
+    @keyframes gantryStencilerCycle {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(110px); }
+    }
+    .anim-gantry-stenciler {
+      animation: gantryStencilerCycle 4.5s ease-in-out infinite;
+    }
+
+    @keyframes laserPulseGlow {
+      0%, 100% { opacity: 0.85; stroke-width: 2; }
+      50% { opacity: 0.35; stroke-width: 1.2; }
+    }
+    .laser-beam-pulse {
+      animation: laserPulseGlow 0.4s ease-in-out infinite;
+    }
+
+    @keyframes plcLedFlash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    .plc-led-blink {
+      animation: plcLedFlash 0.8s steps(2, start) infinite;
+    }
+
     /* Print styling for Executive Dossier */
     @media print {
       body { background: #ffffff !important; color: #000000 !important; }
@@ -431,7 +509,7 @@
       <div>
         <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
           <span class="font-display font-bold text-slate-900 dark:text-white">Engineering Navigation</span>
-          <button onclick="toggleMobileNav()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white font-bold">✕</button>
+          <button onclick="toggleMobileNav()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white font-bold text-lg leading-none" aria-label="Close menu">&times;</button>
         </div>
         <nav class="mt-4 flex flex-col space-y-2 font-mono text-xs font-bold uppercase">
           <a href="#career-history" onclick="toggleMobileNav()" class="py-2 px-3 rounded hover:bg-slate-100 dark:hover:bg-welspun-800 text-amber-600 dark:text-amber-400">1. Working History (1996 - Pres.)</a>
@@ -445,7 +523,8 @@
           <a href="#transport-logistics" onclick="toggleMobileNav()" class="py-2 px-3 rounded hover:bg-slate-100 dark:hover:bg-welspun-800 text-slate-700 dark:text-slate-300">9. Gantry Crane Yard</a>
           <a href="#multimodal-dispatch" onclick="toggleMobileNav()" class="py-2 px-3 rounded hover:bg-slate-100 dark:hover:bg-welspun-800 text-cyan-600 dark:text-cyan-400">10. Intermodal Dispatch</a>
           <a href="#interactive-simulator" onclick="toggleMobileNav()" class="py-2 px-3 rounded hover:bg-slate-100 dark:hover:bg-welspun-800 text-amber-600 dark:text-amber-400">11. Throughput Simulator</a>
-          <a href="#contact" onclick="toggleMobileNav()" class="py-2 px-3 rounded hover:bg-slate-100 dark:hover:bg-welspun-800 text-emerald-600 dark:text-emerald-400">12. Executive Dialogue</a>
+          <a href="#autonomous-plant-floor" onclick="toggleMobileNav()" class="py-2 px-3 rounded hover:bg-slate-100 dark:hover:bg-welspun-800 text-emerald-600 dark:text-emerald-400">12. Live Shopfloor &amp; Cobots</a>
+          <a href="#contact" onclick="toggleMobileNav()" class="py-2 px-3 rounded hover:bg-slate-100 dark:hover:bg-welspun-800 text-emerald-600 dark:text-emerald-400">13. Executive Dialogue</a>
         </nav>
       </div>
       <div class="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
@@ -2194,6 +2273,449 @@
       </div>
     </section>
 
+    <!-- LIVE INDUSTRIAL AUTOMATION FLOOR: HUMANS & ROBOTICS IN MOTION -->
+    <section id="autonomous-plant-floor" class="py-12 sm:py-20 border-b border-slate-300 dark:border-welspun-border bg-slate-950 text-white relative overflow-hidden scroll-mt-20 sm:scroll-mt-24" aria-labelledby="plant-floor-heading">
+      
+      <!-- Ambient High-Bay Lighting Flare -->
+      <div id="floorLightingOverlay" class="absolute inset-0 bg-radial-gradient from-amber-500/10 via-slate-950/40 to-transparent pointer-events-none transition-all duration-700" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="max-w-3xl mb-6 sm:mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-mono font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>LIVE SHOPFLOOR SIMULATION // HUMANS + COLLABORATIVE ROBOTS (COBOTS)</span>
+          </div>
+          <h2 id="plant-floor-heading" class="font-display font-bold text-2xl sm:text-4xl text-white mt-3">
+            Active Industrial Shopfloor: Personnel &amp; Autonomous Robotics
+          </h2>
+          <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
+            Directing collaborative human-machine operations: certified plant personnel executing quality scans, electrical calibration, and crane rigging alongside 6-axis cobots, AMR material carriers, and automated laser seam trackers.
+          </p>
+        </div>
+
+        <!-- Master Industrial Shopfloor Interactive Enclosure -->
+        <div class="steel-card p-4 sm:p-7 rounded-2xl border border-emerald-500/30 bg-slate-900/95 shadow-2xl">
+          
+          <!-- Top Telemetry & Controls Toolbar -->
+          <div class="flex flex-wrap items-center justify-between pb-3.5 border-b border-slate-800 gap-2.5 text-xs font-mono">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span id="activeFloorStatusText" class="text-white font-bold text-[11px] sm:text-xs">
+                CELL BAY 03: 5 PERSONNEL ACTIVE &bull; 3 AUTONOMOUS ROBOTS RUNNING &bull; ZERO HARM (ISO 45001)
+              </span>
+            </div>
+
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <button onclick="toggleFloorShiftLight()" id="btnShiftLighting" class="px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-amber-400 text-[11px] font-bold border border-amber-500/30 transition-all flex items-center gap-1.5">
+                <span>&#9728;</span> <span id="shiftLightLabel">Day Shift</span>
+              </button>
+              <button onclick="toggleFloorSpeed()" id="btnFloorSpeed" class="px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-400 text-[11px] font-bold border border-cyan-500/30 transition-all flex items-center gap-1.5">
+                <span>&#9881;</span> <span id="floorSpeedLabel">1x Normal</span>
+              </button>
+              <button onclick="toggleFloorMotion()" id="btnFloorToggle" class="px-3 py-1.5 rounded bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-bold transition-all">
+                Pause Motion
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic SVG Panoramic Shopfloor Bay -->
+          <div class="relative my-3.5 bg-gradient-to-b from-[#050b17] via-[#09152b] to-[#040813] rounded-xl border border-slate-800 overflow-hidden shadow-inner">
+            
+            <svg id="shopfloorSvg" class="w-full h-80 sm:h-[400px]" viewBox="0 0 1000 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#0c1830"/>
+                  <stop offset="50%" stop-color="#091325"/>
+                  <stop offset="100%" stop-color="#050a14"/>
+                </linearGradient>
+
+                <linearGradient id="pipeShimmerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#334155"/>
+                  <stop offset="25%" stop-color="#64748b"/>
+                  <stop offset="50%" stop-color="#94a3b8"/>
+                  <stop offset="75%" stop-color="#475569"/>
+                  <stop offset="100%" stop-color="#1e293b"/>
+                </linearGradient>
+
+                <linearGradient id="laserBeamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9"/>
+                  <stop offset="50%" stop-color="#00e5ff" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.4"/>
+                </linearGradient>
+
+                <!-- High-Bay Spotlights Filter -->
+                <radialGradient id="highBayLightGrad" cx="50%" cy="0%" r="90%">
+                  <stop offset="0%" stop-color="#fef08a" stop-opacity="0.22"/>
+                  <stop offset="60%" stop-color="#38bdf8" stop-opacity="0.06"/>
+                  <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <!-- High-Bay Floodlight Beams from Factory Ceiling -->
+              <polygon points="120,0 40,280 200,280" fill="url(#highBayLightGrad)" opacity="0.6"/>
+              <polygon points="480,0 380,280 580,280" fill="url(#highBayLightGrad)" opacity="0.7"/>
+              <polygon points="820,0 720,280 920,280" fill="url(#highBayLightGrad)" opacity="0.6"/>
+
+              <!-- Overhead Factory Structural I-Beams & Gantry Rail -->
+              <rect x="0" y="24" width="1000" height="12" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+              <line x1="0" y1="30" x2="1000" y2="30" stroke="#f59e0b" stroke-width="2" stroke-dasharray="10,6"/>
+
+              <!-- Overhead Crane Bridge Columns -->
+              <rect x="20" y="0" width="16" height="280" fill="#0f172a" stroke="#334155"/>
+              <rect x="964" y="0" width="16" height="280" fill="#0f172a" stroke="#334155"/>
+
+              <!-- Overhead Gantry Pipe Marker / Stenciler Robot (Robot #3) -->
+              <g id="gantryStencilerGroup" class="anim-gantry-stenciler" style="transform-origin: 350px 30px;">
+                <rect x="350" y="20" width="60" height="18" fill="#0284c7" stroke="#38bdf8" rx="2"/>
+                <circle cx="365" cy="29" r="3" fill="#ffffff"/>
+                <circle cx="395" cy="29" r="3" fill="#ffffff"/>
+                <line x1="380" y1="38" x2="380" y2="120" stroke="#94a3b8" stroke-width="2.5"/>
+                <!-- Stencil printhead unit -->
+                <rect x="360" y="120" width="40" height="18" fill="#d97706" stroke="#fef08a" rx="2"/>
+                <circle cx="380" cy="138" r="4" fill="#38bdf8" class="arc-strobe"/>
+                <text x="380" y="114" fill="#38bdf8" font-family="'JetBrains Mono'" font-size="7" font-weight="bold" text-anchor="middle">ROBOT GM-02: STENCIL</text>
+              </g>
+
+              <!-- Factory Epoxy Polished Floor Surface -->
+              <rect x="0" y="280" width="1000" height="100" fill="url(#floorGrad)"/>
+              
+              <!-- Yellow Safety Hazard Walkway Lines -->
+              <line x1="0" y1="285" x2="1000" y2="285" stroke="#f59e0b" stroke-width="2" stroke-dasharray="12,8"/>
+              <line x1="0" y1="365" x2="1000" y2="365" stroke="#f59e0b" stroke-width="2" stroke-dasharray="12,8"/>
+
+              <!-- Caution Hatched Zone under Pipe Line -->
+              <rect x="330" y="280" width="370" height="8" fill="#f59e0b" opacity="0.3"/>
+
+              <!-- MAIN CONVEYOR BED: Heavy Ductile Iron Pipe Rotation Line -->
+              <g id="pipeLineGroup">
+                <!-- Conveyor Roller Stands -->
+                <rect x="330" y="235" width="22" height="50" fill="#1e293b" stroke="#334155"/>
+                <rect x="490" y="235" width="22" height="50" fill="#1e293b" stroke="#334155"/>
+                <rect x="650" y="235" width="22" height="50" fill="#1e293b" stroke="#334155"/>
+
+                <!-- Roller Bearings Wheels -->
+                <circle cx="341" cy="235" r="9" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+                <circle cx="501" cy="235" r="9" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+                <circle cx="661" cy="235" r="9" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+
+                <!-- Massive Ductile Iron Pipe (DN 600 Class K9) on Rollers -->
+                <rect x="310" y="195" width="380" height="36" rx="4" fill="url(#pipeShimmerGrad)" stroke="#ea580c" stroke-width="2"/>
+                <!-- Pipe Socket/Spigot Bevel Ends -->
+                <ellipse cx="310" cy="213" rx="10" ry="18" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+                <ellipse cx="690" cy="213" rx="10" ry="18" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+                <!-- Longitudinal Trace & Weld Seam -->
+                <line x1="310" y1="213" x2="690" y2="213" stroke="#00e5ff" stroke-width="2" stroke-dasharray="8,4" class="molten-flow-dash"/>
+                <!-- Printed Pipe Stencil Text -->
+                <text x="470" y="209" fill="#ffffff" font-family="'JetBrains Mono'" font-size="8" font-weight="bold" opacity="0.9">WELSPUN DI PIPE &bull; DN600 &bull; ISO 2531 / EN 545 &bull; HEAT #8841-A</text>
+              </g>
+
+              <!-- ELEVATED SCADA CONTROL ROOM PULPIT (Upper Left: x: 30-120, y: 140-280) -->
+              <g id="controlPulpitGroup">
+                <!-- Pulpit Stilt Columns -->
+                <line x1="45" y1="200" x2="45" y2="280" stroke="#475569" stroke-width="4"/>
+                <line x1="110" y1="200" x2="110" y2="280" stroke="#475569" stroke-width="4"/>
+                <line x1="45" y1="240" x2="110" y2="240" stroke="#334155" stroke-width="2"/>
+
+                <!-- Pulpit Floor Platform & Safety Railing -->
+                <rect x="35" y="195" width="85" height="8" fill="#1e293b" stroke="#f59e0b"/>
+                <line x1="35" y1="172" x2="120" y2="172" stroke="#f59e0b" stroke-width="2"/>
+                <line x1="40" y1="172" x2="40" y2="195" stroke="#f59e0b" stroke-width="1.5"/>
+                <line x1="75" y1="172" x2="75" y2="195" stroke="#f59e0b" stroke-width="1.5"/>
+                <line x1="115" y1="172" x2="115" y2="195" stroke="#f59e0b" stroke-width="1.5"/>
+
+                <!-- SCADA Dual Monitor Console Desk -->
+                <rect x="42" y="176" width="30" height="18" fill="#0f172a" stroke="#38bdf8"/>
+                <rect x="45" y="179" width="11" height="8" fill="#0369a1"/>
+                <rect x="58" y="179" width="11" height="8" fill="#0369a1"/>
+                <line x1="47" y1="183" x2="54" y2="183" stroke="#22c55e" stroke-width="1" class="plc-led-blink"/>
+                <line x1="60" y1="183" x2="67" y2="183" stroke="#f59e0b" stroke-width="1"/>
+
+                <!-- HUMAN 3: SCADA Operator Ananya (Seated / Standing at Pulpit Console) -->
+                <g id="humanOperatorAnanya" class="cursor-pointer" onclick="selectFloorEntity('operator')">
+                  <!-- Hardhat White / Head -->
+                  <circle cx="82" cy="162" r="5" fill="#fde047"/>
+                  <rect x="76" y="159" width="12" height="3" rx="1.5" fill="#f8fafc"/>
+                  <!-- Upper body / Corporate Uniform -->
+                  <rect x="76" y="167" width="12" height="15" rx="2" fill="#0284c7"/>
+                  <!-- Arms to controls -->
+                  <line x1="78" y1="173" x2="70" y2="181" stroke="#fde047" stroke-width="2"/>
+                  <!-- Legs -->
+                  <line x1="79" y1="182" x2="79" y2="195" stroke="#0f172a" stroke-width="2.5"/>
+                  <line x1="85" y1="182" x2="85" y2="195" stroke="#0f172a" stroke-width="2.5"/>
+                  <!-- Label badge -->
+                  <text x="82" y="154" fill="#38bdf8" font-family="'JetBrains Mono'" font-size="7" font-weight="bold" text-anchor="middle">OP. ANANYA (DCS)</text>
+                </g>
+              </g>
+
+              <!-- OPEN ELECTRICAL CONTROL CABINET: Siemens S7 & DeltaV I/O (x: 135-185, y: 200-280) -->
+              <g id="electricalCabinetGroup">
+                <!-- Cabinet Enclosure Outer Box -->
+                <rect x="135" y="200" width="50" height="80" rx="3" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+                <rect x="140" y="205" width="40" height="70" fill="#0f172a" stroke="#0284c7"/>
+                
+                <!-- Open Door Swung Out -->
+                <path d="M 135 200 L 115 205 L 115 285 L 135 280 Z" fill="#334155" stroke="#94a3b8"/>
+                <line x1="120" y1="210" x2="120" y2="275" stroke="#f59e0b" stroke-width="1.5"/>
+
+                <!-- Siemens S7 PLC Rack Modules & Wiring Terminal Strip -->
+                <rect x="143" y="210" width="34" height="14" fill="#0284c7" rx="1"/>
+                <text x="160" y="219" fill="#ffffff" font-family="'JetBrains Mono'" font-size="6" font-weight="bold" text-anchor="middle">S7-400H</text>
+                
+                <!-- Blinking I/O Status LEDs -->
+                <circle cx="147" cy="230" r="1.5" fill="#22c55e" class="plc-led-blink"/>
+                <circle cx="152" cy="230" r="1.5" fill="#22c55e" class="plc-led-blink"/>
+                <circle cx="157" cy="230" r="1.5" fill="#38bdf8" class="plc-led-blink"/>
+                <circle cx="162" cy="230" r="1.5" fill="#f59e0b"/>
+                <circle cx="167" cy="230" r="1.5" fill="#22c55e" class="plc-led-blink"/>
+                <circle cx="172" cy="230" r="1.5" fill="#22c55e" class="plc-led-blink"/>
+
+                <!-- Terminal block rows & wiring loom -->
+                <line x1="145" y1="240" x2="175" y2="240" stroke="#64748b" stroke-width="2"/>
+                <line x1="145" y1="250" x2="175" y2="250" stroke="#64748b" stroke-width="2"/>
+                <line x1="145" y1="260" x2="175" y2="260" stroke="#64748b" stroke-width="2"/>
+                <line x1="145" y1="270" x2="175" y2="270" stroke="#64748b" stroke-width="2"/>
+              </g>
+
+              <!-- HUMAN 2: Electrical & Automation Tech Rajesh (Working at PLC Cabinet) -->
+              <g id="humanTechRajesh" class="cursor-pointer" onclick="selectFloorEntity('tech')">
+                <!-- Hardhat Yellow -->
+                <ellipse cx="196" cy="233" rx="5" ry="3.5" fill="#facc15"/>
+                <circle cx="196" cy="236" r="4" fill="#fed7aa"/>
+                <!-- Torso / Blue Overalls & High-Vis Vest -->
+                <rect x="191" y="240" width="10" height="18" rx="2" fill="#0284c7"/>
+                <rect x="192" y="242" width="8" height="9" fill="#84cc16"/>
+                <line x1="192" y1="246" x2="200" y2="246" stroke="#ffffff" stroke-width="1.5"/>
+                <!-- Legs in dark navy work pants -->
+                <line x1="193" y1="258" x2="193" y2="280" stroke="#0f172a" stroke-width="3"/>
+                <line x1="198" y1="258" x2="198" y2="280" stroke="#0f172a" stroke-width="3"/>
+                <!-- Heavy Safety Boots -->
+                <rect x="191" y="278" width="4" height="3" fill="#78350f" rx="1"/>
+                <rect x="197" y="278" width="4" height="3" fill="#78350f" rx="1"/>
+                
+                <!-- Multimeter held in left hand -->
+                <rect x="199" y="248" width="4" height="7" fill="#dc2626" rx="1"/>
+                <!-- Right Arm with Multimeter Probe touching Terminal (Animated) -->
+                <g class="anim-tech-arm">
+                  <line x1="191" y1="245" x2="175" y2="250" stroke="#fed7aa" stroke-width="2"/>
+                  <line x1="175" y1="250" x2="170" y2="252" stroke="#ef4444" stroke-width="1.5"/>
+                  <circle cx="170" cy="252" r="1.5" fill="#38bdf8" class="arc-strobe"/>
+                </g>
+
+                <text x="196" y="224" fill="#84cc16" font-family="'JetBrains Mono'" font-size="7" font-weight="bold" text-anchor="middle">TECH. RAJESH (PLC)</text>
+              </g>
+
+              <!-- HUMAN 1: Shift Quality Engineer Suresh (Walking along Inspection Line) -->
+              <g id="humanInspectorSuresh" class="anim-worker-walk cursor-pointer" onclick="selectFloorEntity('inspector')" style="transform-origin: 260px 250px;">
+                <!-- Hardhat White / Visor -->
+                <ellipse cx="260" cy="235" rx="5" ry="3.5" fill="#ffffff" stroke="#94a3b8" stroke-width="0.5"/>
+                <circle cx="260" cy="238" r="4" fill="#fed7aa"/>
+                <!-- Torso: Hi-Vis Orange Executive Inspection Vest -->
+                <rect x="255" y="242" width="10" height="18" rx="2" fill="#ea580c"/>
+                <rect x="256" y="244" width="8" height="9" fill="#f97316"/>
+                <!-- Reflective Cross Bracing -->
+                <line x1="256" y1="245" x2="264" y2="253" stroke="#e2e8f0" stroke-width="1"/>
+                <line x1="264" y1="245" x2="256" y2="253" stroke="#e2e8f0" stroke-width="1"/>
+                <!-- Walking Legs (Swing) -->
+                <line x1="257" y1="260" x2="255" y2="280" stroke="#1e293b" stroke-width="3"/>
+                <line x1="263" y1="260" x2="265" y2="280" stroke="#1e293b" stroke-width="3"/>
+                <!-- Boots -->
+                <rect x="253" y="278" width="4" height="3" fill="#0f172a" rx="1"/>
+                <rect x="264" y="278" width="4" height="3" fill="#0f172a" rx="1"/>
+                <!-- Holding Digital QA Tablet with glowing cyan display -->
+                <line x1="263" y1="247" x2="269" y2="252" stroke="#fed7aa" stroke-width="2"/>
+                <rect x="268" y="248" width="7" height="9" fill="#0f172a" stroke="#38bdf8" rx="1"/>
+                <rect x="269" y="249" width="5" height="7" fill="#0284c7"/>
+                <circle cx="271" cy="252" r="1" fill="#22c55e" class="plc-led-blink"/>
+
+                <text x="260" y="226" fill="#f97316" font-family="'JetBrains Mono'" font-size="7" font-weight="bold" text-anchor="middle">QA ENG. SURESH</text>
+              </g>
+
+              <!-- HUMAN 4: Heavy Rigging Lead & Crane Slinger Ramesh (x: 520, y: 248) -->
+              <g id="humanRiggerRamesh" class="cursor-pointer" onclick="selectFloorEntity('rigger')">
+                <!-- Hardhat Orange -->
+                <ellipse cx="524" cy="235" rx="5" ry="3.5" fill="#f97316"/>
+                <circle cx="524" cy="238" r="4" fill="#fed7aa"/>
+                <!-- High-vis Vest -->
+                <rect x="519" y="242" width="10" height="18" rx="2" fill="#eab308"/>
+                <line x1="520" y1="248" x2="528" y2="248" stroke="#ffffff" stroke-width="1.5"/>
+                <!-- Legs & Boots -->
+                <line x1="521" y1="260" x2="521" y2="280" stroke="#1e293b" stroke-width="3"/>
+                <line x1="527" y1="260" x2="527" y2="280" stroke="#1e293b" stroke-width="3"/>
+                <rect x="519" y="278" width="4" height="3" fill="#0f172a"/>
+                <rect x="526" y="278" width="4" height="3" fill="#0f172a"/>
+                
+                <!-- Left Hand holding Crane Wireless Remote Pendant -->
+                <rect x="515" y="250" width="4" height="8" fill="#eab308" stroke="#000" rx="1"/>
+                <circle cx="517" cy="252" r="1" fill="#dc2626"/>
+
+                <!-- Right Arm Gesturing Up/Down (Animated) -->
+                <g class="anim-rigger-arm">
+                  <line x1="527" y1="245" x2="538" y2="238" stroke="#fed7aa" stroke-width="2"/>
+                  <circle cx="539" cy="237" r="1.5" fill="#ea580c"/>
+                </g>
+
+                <text x="524" y="226" fill="#eab308" font-family="'JetBrains Mono'" font-size="7" font-weight="bold" text-anchor="middle">RIGGER RAMESH</text>
+              </g>
+
+              <!-- ROBOT 2: 6-Axis Articulated Cobot R-08 (Laser Seam Profiler & Welder) -->
+              <g id="cobotSeamWelderGroup" class="cursor-pointer" onclick="selectFloorEntity('cobot')">
+                <!-- Heavy Pedestal Base -->
+                <rect x="720" y="250" width="22" height="30" fill="#0f172a" stroke="#0284c7" stroke-width="2" rx="2"/>
+                <circle cx="731" cy="248" r="8" fill="#0284c7" stroke="#38bdf8"/>
+                <circle cx="731" cy="248" r="3" fill="#22c55e" class="plc-led-blink"/>
+
+                <!-- Lower Link Arm -->
+                <line x1="731" y1="248" x2="720" y2="200" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="720" cy="200" r="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+
+                <!-- Articulating Forearm Joint (Animated Sweep) -->
+                <g class="anim-cobot-joint">
+                  <line x1="720" y1="200" x2="685" y2="195" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+                  <circle cx="685" cy="195" r="4" fill="#0f172a" stroke="#f59e0b"/>
+                  
+                  <!-- End-Effector Tool Head -->
+                  <line x1="685" y1="195" x2="675" y2="210" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+                  <circle cx="675" cy="210" r="3" fill="#00e5ff" class="arc-strobe"/>
+
+                  <!-- Active Laser Scanning Line projecting onto pipe -->
+                  <line x1="675" y1="210" x2="660" y2="213" stroke="url(#laserBeamGrad)" stroke-width="2" class="laser-beam-pulse"/>
+                </g>
+
+                <text x="731" y="185" fill="#38bdf8" font-family="'JetBrains Mono'" font-size="7" font-weight="bold" text-anchor="middle">COBOT R-08 (AUT SCAN)</text>
+              </g>
+
+              <!-- HUMAN 5: Metallurgical Process Specialist Imran (at heated runner) -->
+              <g id="humanProcessImran" class="cursor-pointer" onclick="selectFloorEntity('process')">
+                <!-- Heat reflective helmet & gold face shield -->
+                <ellipse cx="885" cy="235" rx="5" ry="4" fill="#fbbf24"/>
+                <circle cx="885" cy="237" r="3.5" fill="#b45309"/>
+                <!-- Aluminized Proximity Heat Coat -->
+                <rect x="880" y="241" width="11" height="19" rx="2" fill="#cbd5e1" stroke="#94a3b8"/>
+                <!-- Legs in heat gaiters -->
+                <line x1="882" y1="260" x2="882" y2="280" stroke="#475569" stroke-width="3"/>
+                <line x1="889" y1="260" x2="889" y2="280" stroke="#475569" stroke-width="3"/>
+                <!-- Holding Immersion Pyrometer Lance -->
+                <line x1="886" y1="248" x2="855" y2="255" stroke="#94a3b8" stroke-width="2"/>
+                <circle cx="855" cy="255" r="2" fill="#f59e0b" class="arc-strobe"/>
+
+                <text x="885" y="225" fill="#fbbf24" font-family="'JetBrains Mono'" font-size="7" font-weight="bold" text-anchor="middle">MET. IMRAN (1460&deg;C)</text>
+              </g>
+
+              <!-- ROBOT 1: Autonomous Mobile Robot (AMR / AGV Unit-04) on Lower Floor Track -->
+              <g id="amrCartGroup" class="anim-amr-cart cursor-pointer" onclick="selectFloorEntity('amr')" style="transform-origin: 220px 335px;">
+                <!-- Blue Floor Laser Safety Projection Halo -->
+                <ellipse cx="230" cy="342" rx="36" ry="7" fill="#38bdf8" opacity="0.25"/>
+
+                <!-- AMR Chassis Body -->
+                <rect x="200" y="322" width="56" height="18" rx="4" fill="#f59e0b" stroke="#040812" stroke-width="2"/>
+                <rect x="204" y="325" width="48" height="5" fill="#1e293b"/>
+                
+                <!-- Heavy Rubber Wheels with drive hubs -->
+                <circle cx="212" cy="340" r="4.5" fill="#0f172a" stroke="#64748b" stroke-width="1.5"/>
+                <circle cx="244" cy="340" r="4.5" fill="#0f172a" stroke="#64748b" stroke-width="1.5"/>
+
+                <!-- Top Cargo Load: Metallurgy test coupons & fittings -->
+                <rect x="210" y="314" width="16" height="8" fill="#334155" stroke="#94a3b8" rx="1"/>
+                <rect x="228" y="316" width="14" height="6" fill="#475569" stroke="#94a3b8" rx="1"/>
+
+                <!-- Front 360&deg; LiDAR Scanner Turret & Warning Strobe Beacon -->
+                <circle cx="250" cy="326" r="3" fill="#0284c7"/>
+                <line x1="205" y1="322" x2="205" y2="310" stroke="#0f172a" stroke-width="1.5"/>
+                <circle cx="205" cy="310" r="2.5" fill="#f59e0b" class="arc-strobe"/>
+
+                <text x="228" y="306" fill="#f59e0b" font-family="'JetBrains Mono'" font-size="7" font-weight="bold" text-anchor="middle">AMR UNIT-04 &bull; SLAM</text>
+              </g>
+
+              <!-- Shopfloor Ground Grid Coordinate Markers -->
+              <text x="30" y="375" fill="#475569" font-family="'JetBrains Mono'" font-size="8">BAY-3 / SECTOR A &bull; ISO 45001 ZERO HARM</text>
+              <text x="970" y="375" fill="#10b981" font-family="'JetBrains Mono'" font-size="8" text-anchor="end">ALL 8 WORKSTATIONS SYNCED (2.4ms CYCLE)</text>
+            </svg>
+
+          </div>
+
+          <!-- Interactive Personnel & Robotics Telemetry Cards Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 text-xs font-mono">
+            
+            <!-- Entity 1: QA Inspector -->
+            <button onclick="selectFloorEntity('inspector')" id="cardEntityInspector" class="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-orange-500/40 text-left hover:border-orange-400 transition-all">
+              <div class="flex items-center justify-between pb-1 border-b border-slate-800">
+                <span class="text-[10px] text-orange-400 font-bold truncate">1. QA INSPECTOR</span>
+                <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+              </div>
+              <p class="text-[11px] font-bold text-white mt-1 truncate">Eng. Suresh</p>
+              <p class="text-[10px] text-slate-400 mt-0.5 truncate">Digital Gauge / Ovality</p>
+              <span class="inline-block mt-1 text-[9px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-300">ISO 2531 Pass</span>
+            </button>
+
+            <!-- Entity 2: Electrical Tech -->
+            <button onclick="selectFloorEntity('tech')" id="cardEntityTech" class="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 text-left hover:border-lime-400 transition-all">
+              <div class="flex items-center justify-between pb-1 border-b border-slate-800">
+                <span class="text-[10px] text-lime-400 font-bold truncate">2. AUTOMATION TECH</span>
+                <span class="w-2 h-2 rounded-full bg-lime-400"></span>
+              </div>
+              <p class="text-[11px] font-bold text-white mt-1 truncate">Tech. Rajesh</p>
+              <p class="text-[10px] text-slate-400 mt-0.5 truncate">Siemens S7-400 Rack</p>
+              <span class="inline-block mt-1 text-[9px] px-1.5 py-0.5 rounded bg-lime-500/10 text-lime-300">Profinet Loop OK</span>
+            </button>
+
+            <!-- Entity 3: SCADA Operator -->
+            <button onclick="selectFloorEntity('operator')" id="cardEntityOperator" class="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 text-left hover:border-cyan-400 transition-all">
+              <div class="flex items-center justify-between pb-1 border-b border-slate-800">
+                <span class="text-[10px] text-cyan-400 font-bold truncate">3. SCADA OPERATOR</span>
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              </div>
+              <p class="text-[11px] font-bold text-white mt-1 truncate">Op. Ananya</p>
+              <p class="text-[10px] text-slate-400 mt-0.5 truncate">DeltaV Pulpit Console</p>
+              <span class="inline-block mt-1 text-[9px] px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-300">4,800 I/O Active</span>
+            </button>
+
+            <!-- Entity 4: 6-Axis Cobot -->
+            <button onclick="selectFloorEntity('cobot')" id="cardEntityCobot" class="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 text-left hover:border-blue-400 transition-all">
+              <div class="flex items-center justify-between pb-1 border-b border-slate-800">
+                <span class="text-[10px] text-blue-400 font-bold truncate">4. 6-AXIS COBOT</span>
+                <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+              </div>
+              <p class="text-[11px] font-bold text-white mt-1 truncate">Cobot R-08</p>
+              <p class="text-[10px] text-slate-400 mt-0.5 truncate">Laser Seam Tracking</p>
+              <span class="inline-block mt-1 text-[9px] px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-300">&plusmn;0.02mm Precision</span>
+            </button>
+
+            <!-- Entity 5: AMR Mobile Robot -->
+            <button onclick="selectFloorEntity('amr')" id="cardEntityAmr" class="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 text-left hover:border-amber-400 transition-all col-span-2 sm:col-span-1">
+              <div class="flex items-center justify-between pb-1 border-b border-slate-800">
+                <span class="text-[10px] text-amber-400 font-bold truncate">5. AMR ROBOT CART</span>
+                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              </div>
+              <p class="text-[11px] font-bold text-white mt-1 truncate">Unit-04 Autonomous</p>
+              <p class="text-[10px] text-slate-400 mt-0.5 truncate">LiDAR SLAM Navigation</p>
+              <span class="inline-block mt-1 text-[9px] px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300">500kg Load En Route</span>
+            </button>
+
+          </div>
+
+          <!-- Selected Entity Live Telemetry Dossier Panel -->
+          <div id="floorEntityDetailBox" class="mt-3.5 p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 text-xs font-mono flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="space-y-1">
+              <span id="detailEntityTitle" class="text-xs font-bold text-orange-400">
+                QA INSPECTOR: ENG. SURESH &bull; SHIFT A QUALITY VERIFICATION
+              </span>
+              <p id="detailEntityDesc" class="text-[11px] text-slate-300 leading-relaxed">
+                Conducting physical ultrasonic wall thickness &amp; circumference ovality inspections on freshly cast ductile iron pipes against ISO 2531 / EN 545 tolerances. Synchronizing live handheld readings to the central MES quality server.
+              </p>
+            </div>
+            <div class="shrink-0 flex items-center gap-2">
+              <span class="text-[10px] px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-bold">
+                100% SOP COMPLIANT
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- Executive Communication Desk -->
     <section id="contact" class="py-12 sm:py-20 border-b border-slate-300 dark:border-welspun-border no-print scroll-mt-20 sm:scroll-mt-24" aria-labelledby="contact-heading">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -2950,11 +3472,219 @@
     }
 
     // Initializations
+    
+    // 12. Industrial Shopfloor: Personnel & Autonomous Robotics Controls
+    const floorEntityData = {
+      inspector: {
+        title: "QA INSPECTOR: ENG. SURESH &bull; SHIFT A QUALITY VERIFICATION",
+        desc: "Conducting physical ultrasonic wall thickness & circumference ovality inspections on freshly cast ductile iron pipes against ISO 2531 / EN 545 tolerances. Synchronizing live handheld readings to the central MES quality server.",
+        badge: "100% SOP COMPLIANT",
+        badgeClass: "bg-emerald-500/20 text-emerald-400 border-emerald-500/40",
+        cardId: "cardEntityInspector",
+        activeBorder: "border-orange-500/80 shadow-lg shadow-orange-500/10",
+        titleColor: "text-orange-400"
+      },
+      tech: {
+        title: "AUTOMATION TECH: RAJESH &bull; SIEMENS S7-400H / PROFIBUS DIAGNOSTICS",
+        desc: "Field diagnostic calibration on PLC Bay-3 remote I/O nodes, checking analog 4-20mA pressure transducer loops, Profinet bus latency, and safety interlock trip response times.",
+        badge: "PROFINET LOOP OK",
+        badgeClass: "bg-lime-500/20 text-lime-400 border-lime-500/40",
+        cardId: "cardEntityTech",
+        activeBorder: "border-lime-500/80 shadow-lg shadow-lime-500/10",
+        titleColor: "text-lime-400"
+      },
+      operator: {
+        title: "SCADA DCS OPERATOR: ANANYA &bull; PULPIT CONSOLE & DISPATCH",
+        desc: "Supervising induction furnace charge rate, 1,200 RPM centrifugal spin velocity, mold wash temperature gradients, and automatic gantry pick-up sequences across 4,800 active DCS tags.",
+        badge: "4,800 I/O ACTIVE",
+        badgeClass: "bg-cyan-500/20 text-cyan-400 border-cyan-500/40",
+        cardId: "cardEntityOperator",
+        activeBorder: "border-cyan-500/80 shadow-lg shadow-cyan-500/10",
+        titleColor: "text-cyan-400"
+      },
+      rigger: {
+        title: "RIGGING LEAD: RAMESH &bull; OVERHEAD 20T GANTRY DIRECTIVE",
+        desc: "Directing wireless pendant overhead magnet and high-tensile nylon slings to transfer hot DN600 ductile iron pipes into annealing heat treatment lehrs with zero line collisions.",
+        badge: "LEEA CERTIFIED RIGGER",
+        badgeClass: "bg-amber-500/20 text-amber-400 border-amber-500/40",
+        cardId: "cardEntityInspector",
+        activeBorder: "border-amber-500/80 shadow-lg shadow-amber-500/10",
+        titleColor: "text-amber-400"
+      },
+      cobot: {
+        title: "ROBOT R-08: 6-AXIS ARTICULATED COBOT &bull; LASER SEAM TRACKER",
+        desc: "High-frequency structured blue laser profile scanning of pipe longitudinal weld joints at &plusmn;0.02mm repeatable accuracy with automated torque and force-sensing collaborative collision mitigation.",
+        badge: "&plusmn;0.02mm PRECISE",
+        badgeClass: "bg-blue-500/20 text-blue-400 border-blue-500/40",
+        cardId: "cardEntityCobot",
+        activeBorder: "border-blue-500/80 shadow-lg shadow-blue-500/10",
+        titleColor: "text-blue-400"
+      },
+      process: {
+        title: "METALLURGIST: IMRAN &bull; OPTICAL PYROMETRY & 1460&deg;C TAPPING",
+        desc: "Validating optical immersion pyrometer readings during magnesium treatment and inoculant wire feeding to guarantee nodularity &ge; 90% and pearlite matrix control.",
+        badge: "1460&deg;C OPTIMAL",
+        badgeClass: "bg-amber-500/20 text-amber-400 border-amber-500/40",
+        cardId: "cardEntityAmr",
+        activeBorder: "border-amber-500/80 shadow-lg shadow-amber-500/10",
+        titleColor: "text-amber-400"
+      },
+      amr: {
+        title: "ROBOT UNIT-04: AUTONOMOUS MOBILE ROBOT (AMR) &bull; SLAM NAVIGATION",
+        desc: "Navigating dynamic 2D LiDAR SLAM routes at 1.2 m/s carrying metallurgy test coupons and machine tooling inserts between QA metallurgical lab and casting line.",
+        badge: "500KG RATED EN ROUTE",
+        badgeClass: "bg-amber-500/20 text-amber-400 border-amber-500/40",
+        cardId: "cardEntityAmr",
+        activeBorder: "border-amber-500/80 shadow-lg shadow-amber-500/10",
+        titleColor: "text-amber-400"
+      }
+    };
+
+    function selectFloorEntity(entityKey) {
+      const entity = floorEntityData[entityKey];
+      if (!entity) return;
+
+      const titleEl = document.getElementById('detailEntityTitle');
+      const descEl = document.getElementById('detailEntityDesc');
+      const box = document.getElementById('floorEntityDetailBox');
+
+      if (titleEl) {
+        titleEl.innerHTML = entity.title;
+        titleEl.className = `text-xs font-bold ${entity.titleColor}`;
+      }
+      if (descEl) {
+        descEl.innerHTML = entity.desc;
+      }
+
+      const badgeContainer = box ? box.querySelector('.shrink-0') : null;
+      if (badgeContainer) {
+        badgeContainer.innerHTML = `<span class="text-[10px] px-2.5 py-1 rounded border font-bold ${entity.badgeClass}">${entity.badge}</span>`;
+      }
+
+      const cardIds = ['cardEntityInspector', 'cardEntityTech', 'cardEntityOperator', 'cardEntityCobot', 'cardEntityAmr'];
+      cardIds.forEach(id => {
+        const c = document.getElementById(id);
+        if (c) {
+          c.classList.remove('border-orange-500/80', 'border-lime-500/80', 'border-cyan-500/80', 'border-blue-500/80', 'border-amber-500/80', 'shadow-lg');
+          c.classList.add('border-slate-800');
+        }
+      });
+
+      const activeCard = document.getElementById(entity.cardId);
+      if (activeCard) {
+        activeCard.classList.remove('border-slate-800');
+        const borderClasses = entity.activeBorder.split(' ');
+        activeCard.classList.add(...borderClasses);
+      }
+    }
+
+    let floorShiftIsDay = true;
+    function toggleFloorShiftLight() {
+      floorShiftIsDay = !floorShiftIsDay;
+      const overlay = document.getElementById('floorLightingOverlay');
+      const label = document.getElementById('shiftLightLabel');
+      const statusText = document.getElementById('activeFloorStatusText');
+
+      if (floorShiftIsDay) {
+        if (overlay) {
+          overlay.className = "absolute inset-0 bg-radial-gradient from-amber-500/10 via-slate-950/40 to-transparent pointer-events-none transition-all duration-700";
+        }
+        if (label) label.innerText = "Day Shift";
+        if (statusText) statusText.innerText = "CELL BAY 03: 5 PERSONNEL ACTIVE • 3 AUTONOMOUS ROBOTS RUNNING • ZERO HARM (ISO 45001)";
+      } else {
+        if (overlay) {
+          overlay.className = "absolute inset-0 bg-radial-gradient from-blue-600/20 via-slate-950/70 to-transparent pointer-events-none transition-all duration-700";
+        }
+        if (label) label.innerText = "Night Shift";
+        if (statusText) statusText.innerText = "NIGHT SHIFT ACTIVE • AUTONOMOUS ROBOTICS ENGAGED • PERIMETER LIGHT CURTAINS ARMED";
+      }
+    }
+
+    let floorSpeedMode = 1;
+    function toggleFloorSpeed() {
+      const svg = document.getElementById('shopfloorSvg');
+      const label = document.getElementById('floorSpeedLabel');
+      if (!svg) return;
+
+      const animatedElements = svg.querySelectorAll('.anim-worker-walk, .anim-tech-arm, .anim-rigger-arm, .anim-amr-cart, .anim-cobot-joint, .anim-gantry-stenciler');
+
+      if (floorSpeedMode === 1) {
+        floorSpeedMode = 2;
+        if (label) label.innerText = "2x Turbo";
+        animatedElements.forEach(el => {
+          if (el.classList.contains('anim-worker-walk')) el.style.animationDuration = '9s';
+          if (el.classList.contains('anim-amr-cart')) el.style.animationDuration = '10s';
+          if (el.classList.contains('anim-cobot-joint')) el.style.animationDuration = '1.7s';
+          if (el.classList.contains('anim-gantry-stenciler')) el.style.animationDuration = '2.25s';
+          if (el.classList.contains('anim-tech-arm')) el.style.animationDuration = '1.2s';
+          if (el.classList.contains('anim-rigger-arm')) el.style.animationDuration = '1.0s';
+        });
+      } else if (floorSpeedMode === 2) {
+        floorSpeedMode = 0.5;
+        if (label) label.innerText = "0.5x Slow";
+        animatedElements.forEach(el => {
+          if (el.classList.contains('anim-worker-walk')) el.style.animationDuration = '36s';
+          if (el.classList.contains('anim-amr-cart')) el.style.animationDuration = '40s';
+          if (el.classList.contains('anim-cobot-joint')) el.style.animationDuration = '6.8s';
+          if (el.classList.contains('anim-gantry-stenciler')) el.style.animationDuration = '9.0s';
+          if (el.classList.contains('anim-tech-arm')) el.style.animationDuration = '4.8s';
+          if (el.classList.contains('anim-rigger-arm')) el.style.animationDuration = '4.0s';
+        });
+      } else {
+        floorSpeedMode = 1;
+        if (label) label.innerText = "1x Normal";
+        animatedElements.forEach(el => {
+          el.style.animationDuration = '';
+        });
+      }
+    }
+
+    let floorMotionRunning = true;
+    function toggleFloorMotion() {
+      const svg = document.getElementById('shopfloorSvg');
+      const btn = document.getElementById('btnFloorToggle');
+      if (!svg || !btn) return;
+
+      floorMotionRunning = !floorMotionRunning;
+      const animatedElements = svg.querySelectorAll('.anim-worker-walk, .anim-tech-arm, .anim-rigger-arm, .anim-amr-cart, .anim-cobot-joint, .anim-gantry-stenciler, .laser-beam-pulse, .plc-led-blink, .arc-strobe');
+
+      if (floorMotionRunning) {
+        animatedElements.forEach(el => el.style.animationPlayState = 'running');
+        btn.innerText = "Pause Motion";
+        btn.className = "px-3 py-1.5 rounded bg-amber-500 hover:bg-amber-400 text-slate-950 text-[11px] font-bold transition-all";
+      } else {
+        animatedElements.forEach(el => el.style.animationPlayState = 'paused');
+        btn.innerText = "Resume Motion";
+        btn.className = "px-3 py-1.5 rounded bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-[11px] font-bold transition-all";
+      }
+    }
+
+    // Viewport Intersection Observer for Industrial Shopfloor Animation
+    const floorSection = document.getElementById('autonomous-plant-floor');
+    if (floorSection && 'IntersectionObserver' in window) {
+      const floorObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const svg = document.getElementById('shopfloorSvg');
+          if (!svg) return;
+          const animatedElements = svg.querySelectorAll('.anim-worker-walk, .anim-tech-arm, .anim-rigger-arm, .anim-amr-cart, .anim-cobot-joint, .anim-gantry-stenciler');
+          if (entry.isIntersecting) {
+            if (floorMotionRunning) {
+              animatedElements.forEach(el => el.style.animationPlayState = 'running');
+            }
+          } else {
+            animatedElements.forEach(el => el.style.animationPlayState = 'paused');
+          }
+        });
+      }, { threshold: 0.05 });
+      floorObserver.observe(floorSection);
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       initTheme();
       initWeldingSparkCanvas();
       runSimulator();
       animateMultimodalFleet();
+      selectFloorEntity('inspector');
     });
   </script>
 </body>
