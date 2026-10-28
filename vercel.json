@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "cleanUrls": true,
   "headers": [
     {
@@ -19,9 +18,5 @@
         }
       ]
     }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
