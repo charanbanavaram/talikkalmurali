@@ -301,74 +301,106 @@
   </a>
 
   <!-- Top Facility Status Ticker -->
-  <aside aria-label="Facility Status" class="bg-slate-200 dark:bg-gradient-to-r dark:from-welspun-900 dark:via-welspun-850 dark:to-welspun-900 border-b border-slate-300 dark:border-welspun-border py-1.5 sm:py-2 text-[11px] sm:text-xs font-mono text-slate-700 dark:text-slate-300 no-print transition-colors duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-      <div class="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
-        <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 animate-pulse shrink-0" aria-hidden="true"></span>
+  <aside aria-label="Facility Status" class="bg-slate-200 dark:bg-gradient-to-r dark:from-welspun-900 dark:via-welspun-850 dark:to-welspun-900 border-b border-slate-300 dark:border-welspun-border py-1.5 text-[11px] font-mono text-slate-700 dark:text-slate-300 no-print transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 min-w-0 overflow-hidden text-ellipsis whitespace-nowrap">
+        <span class="w-2 h-2 rounded-sm bg-emerald-500 animate-pulse shrink-0" aria-hidden="true"></span>
         <span class="truncate">
-          ELECTRICAL &amp; AUTOMATION &bull; <strong class="text-slate-950 dark:text-white">DGM</strong> (EX-<span class="text-amber-600 dark:text-amber-400 font-bold">AGM</span>) &bull; <span class="text-amber-700 dark:text-amber-400 font-bold">WELSPUN DI PIPE</span> (ANJAR, GUJARAT) &bull; EX-<span class="text-orange-700 dark:text-orange-400 font-bold">ELECTROSTEEL GROUP</span>
+          ELECTRICAL &amp; AUTOMATION &bull; <strong class="text-slate-950 dark:text-white">DGM</strong> (EX-<span class="text-amber-600 dark:text-amber-400 font-bold">AGM</span>) &bull; <span class="text-amber-700 dark:text-amber-400 font-bold">WELSPUN DI PIPE</span> &bull; EX-<span class="text-orange-700 dark:text-orange-400 font-bold">ELECTROSTEEL GROUP</span>
         </span>
       </div>
-      <div class="hidden md:flex items-center gap-4 text-[11px] text-slate-600 dark:text-slate-400 shrink-0">
-        <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-emerald-500 inline" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"></path></svg> 28+ YRS INDUSTRY TRACK RECORD</span>
-        <span>|</span>
-        <span class="text-slate-800 dark:text-slate-300">PLC &bull; SCADA &bull; DCS &bull; INSTRUMENTATION</span>
+      <div class="hidden lg:flex items-center gap-3 text-[11px] text-slate-600 dark:text-slate-400 shrink-0 whitespace-nowrap">
+        <span class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold">
+          <svg class="w-3.5 h-3.5 inline" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"></path></svg>
+          28+ YRS INDUSTRY TRACK RECORD
+        </span>
+        <span class="text-slate-400 dark:text-slate-600">|</span>
+        <span class="text-slate-800 dark:text-slate-300 font-medium">PLC &bull; SCADA &bull; DCS &bull; INSTRUMENTATION</span>
       </div>
     </div>
   </aside>
 
   <!-- Main Header with Responsive Navigation -->
   <header class="sticky top-0 z-40 bg-white/95 dark:bg-welspun-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-welspun-border no-print transition-colors duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 lg:gap-4">
       
       <!-- Brand & Designation -->
-      <a href="#hero" class="flex items-center gap-3 group shrink-0">
-        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-slate-100 dark:bg-gradient-to-br dark:from-welspun-850 dark:to-welspun-800 border border-amber-500/40 flex items-center justify-center font-tech font-bold text-amber-600 dark:text-amber-400 text-lg sm:text-xl group-hover:border-amber-500 group-hover:shadow-furnace-glow transition-all">
+      <a href="#hero" class="flex items-center gap-2.5 sm:gap-3 group shrink-0 min-w-0">
+        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-slate-100 dark:bg-gradient-to-br dark:from-welspun-850 dark:to-welspun-800 border border-amber-500/40 flex items-center justify-center font-tech font-bold text-amber-600 dark:text-amber-400 text-base sm:text-lg group-hover:border-amber-500 group-hover:shadow-furnace-glow transition-all shrink-0">
           MT
         </div>
-        <div>
-          <span class="font-display font-black text-base sm:text-lg text-slate-950 dark:text-white tracking-tight group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors flex items-center gap-1.5">
-            Murali Talikkal
-            <span class="text-[9px] sm:text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">DGM</span>
+        <div class="min-w-0">
+          <div class="flex items-center gap-1.5">
+            <span class="font-display font-black text-sm sm:text-base lg:text-lg text-slate-950 dark:text-white tracking-tight group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors whitespace-nowrap">
+              Murali Talikkal
+            </span>
+            <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 shrink-0">DGM</span>
+          </div>
+          <span class="block text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-mono truncate max-w-[170px] sm:max-w-[220px] 2xl:max-w-none">
+            Electrical &amp; Automation &bull; Welspun DI Pipe
           </span>
-          <span class="block text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-mono truncate max-w-[200px] sm:max-w-none">Deputy General Manager &bull; Electrical &amp; Automation &bull; Welspun DI Pipe</span>
         </div>
       </a>
 
-      <!-- Desktop Engineering Navigation Links -->
-      <nav aria-label="Main Navigation" class="hidden xl:flex items-center gap-5 text-xs font-mono font-bold tracking-wider uppercase text-slate-700 dark:text-slate-300">
-        <a href="#career-history" class="text-amber-600 dark:text-amber-400 hover:text-amber-500 transition-colors flex items-center gap-1">
+      <!-- Desktop Engineering Navigation Links (Widescreen 2XL >= 1536px) -->
+      <nav aria-label="Main Navigation" class="hidden 2xl:flex items-center gap-4 text-xs font-mono font-bold tracking-wider uppercase text-slate-700 dark:text-slate-300 whitespace-nowrap shrink-0">
+        <a href="#career-history" class="text-amber-600 dark:text-amber-400 hover:text-amber-500 transition-colors">
           Working History
         </a>
         <a href="#technical-arsenal" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-          Instrumentation Stack
+          Instrumentation
         </a>
-        <a href="#foundry-crucible-live" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors flex items-center gap-1">
-          Furnace &amp; Slag
+        <a href="#foundry-crucible-live" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+          Furnace
         </a>
-        <a href="#centrifugal-casting-live" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors flex items-center gap-1">
+        <a href="#centrifugal-casting-live" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
           1,200 RPM Die
         </a>
         <a href="#projects-verified" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
           Milestones
         </a>
         <a href="#multimodal-dispatch" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
-          Plant&rarr;Truck&rarr;Ship
+          Logistics
         </a>
         <a href="#interactive-simulator" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
           Yield Model
         </a>
       </nav>
 
+      <!-- Compact Desktop Navigation for standard laptops (1024px to 1535px) -->
+      <nav aria-label="Medium Navigation" class="hidden lg:flex 2xl:hidden items-center gap-3 text-[11px] font-mono font-bold uppercase text-slate-700 dark:text-slate-300 whitespace-nowrap">
+        <a href="#career-history" class="text-amber-600 dark:text-amber-400 hover:text-amber-500 transition-colors">
+          History
+        </a>
+        <a href="#technical-arsenal" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+          Instrumentation
+        </a>
+        <a href="#foundry-crucible-live" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+          Furnace
+        </a>
+        <a href="#centrifugal-casting-live" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+          Casting
+        </a>
+        <a href="#projects-verified" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+          Milestones
+        </a>
+        <a href="#multimodal-dispatch" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+          Logistics
+        </a>
+        <a href="#interactive-simulator" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+          Simulator
+        </a>
+      </nav>
+
       <!-- Action Buttons & Controls -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
         <!-- Verified LinkedIn Profile Direct Link -->
         <a href="https://www.linkedin.com/in/murali-talikkal-32847a23/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-welspun-900 text-blue-600 dark:text-blue-400 flex items-center justify-center hover:border-blue-500 hover:shadow-sm transition-all shrink-0" aria-label="Murali Talikkal LinkedIn Profile" title="Open LinkedIn Profile">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
 
         <!-- Schedule Advisory Call Modal Trigger -->
-        <button onclick="openBookingModal()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-xs font-mono text-amber-700 dark:text-amber-400 font-bold transition-all shrink-0" title="Schedule Advisory Call">
+        <button onclick="openBookingModal()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-xs font-mono text-amber-700 dark:text-amber-400 font-bold transition-all shrink-0 whitespace-nowrap" title="Schedule Advisory Call">
           <span>Book Advisory</span>
         </button>
 
@@ -378,12 +410,12 @@
         </button>
 
         <!-- Print Dossier Trigger -->
-        <button onclick="handlePrintDossier()" class="hidden lg:inline-flex items-center gap-1 px-3 py-2 rounded border border-slate-300 dark:border-slate-700 hover:border-amber-500 text-xs font-mono text-slate-700 dark:text-slate-300 transition-all shrink-0" title="Print Executive Dossier">
+        <button onclick="handlePrintDossier()" class="hidden 2xl:inline-flex items-center gap-1 px-3 py-2 rounded border border-slate-300 dark:border-slate-700 hover:border-amber-500 text-xs font-mono text-slate-700 dark:text-slate-300 transition-all shrink-0 whitespace-nowrap" title="Print Executive Dossier">
           <span>Print Dossier</span>
         </button>
 
-        <!-- Mobile Drawer Menu Toggle -->
-        <button onclick="toggleMobileNav()" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="xl:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-welspun-900 text-slate-900 dark:text-white flex items-center justify-center hover:border-amber-500 transition-all shrink-0">
+        <!-- Mobile / Tablet Drawer Menu Toggle -->
+        <button onclick="toggleMobileNav()" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-welspun-900 text-slate-900 dark:text-white flex items-center justify-center hover:border-amber-500 transition-all shrink-0">
           <svg class="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
       </div>
@@ -391,7 +423,7 @@
   </header>
 
   <!-- Mobile Slide-out Navigation Drawer -->
-  <div id="mobileDrawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300 xl:hidden">
+  <div id="mobileDrawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300 lg:hidden">
     <!-- Backdrop -->
     <div onclick="toggleMobileNav()" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
     <!-- Drawer Panel -->
